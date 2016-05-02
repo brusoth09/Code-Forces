@@ -1,34 +1,35 @@
-#include<stdio.h>
-#include<math.h>
-#include<ctype.h>
-#include<string.h>
-#include<stdlib.h>
+#include <stdio.h>
 #include <iostream>
 #include <algorithm>
+#include <cstring>
 
-#define N 110000
-#define min(a, b)(a < b ? a : b);
+#define N 100000
 
 using namespace std;
 
-int generate_polygon(){
+long getSum(long array[], int length){
+    long sum = 0;
+    for(int count = 0; count < length ;count++)
+        sum += array[count];
+    return sum;
+}
+long generate_polygon(){
     int rods;
     scanf("%d", &rods);
     
-    int rod_length [rods];
+    long rod_length [rods];
     memset(rod_length, 0, sizeof(rod_length));
     
     for( int i = 0; i < rods ; i++){
-        scanf("%d", &rod_length[i]);
+        scanf("%ld", &rod_length[i]);
     }
     
     sort(rod_length, rod_length + rods);
     
-    cout << rod_length[2];
-    return 0;
+    return 2*rod_length[rods-1] - getSum(rod_length,rods) + 1;
 }
 
 int main()
 {
-    generate_polygon();   
+    cout << generate_polygon();
 }
