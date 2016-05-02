@@ -28,8 +28,3 @@ long generate_polygon(){
     
     return 2*rod_length[rods-1] - getSum(rod_length,rods) + 1;
 }
-
-int main()
-{
-    cout << generate_polygon();
-}

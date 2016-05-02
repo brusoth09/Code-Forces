@@ -12,9 +12,10 @@
 #include <vector>
 #include <sstream>
 
+#define toDigit(c) (c-'0')
+
 using namespace std;
 
-#define toDigit(c) (c-'0')
 vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
     std::stringstream ss(s);
     std::string item;
@@ -39,7 +40,7 @@ string read_inputs(){
     vector<string> jumpings;
     
     cout << direction;
-    //read inputs
+    //read inputs from console
     getline( cin, input);
     strip_length = stoi(input);
     do {
